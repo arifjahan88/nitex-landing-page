@@ -83,7 +83,7 @@ const Navbar = () => {
               <div className="main_nav">
                 <nav className="primary_navigation">
                   <ul>
-                    <li>
+                    <li onMouseEnter={() => servicesMenuClose()}>
                       <p className="nav_link">About Us</p>
                     </li>
                     <Fragment>
@@ -110,7 +110,7 @@ const Navbar = () => {
                         </span>
                       </li>
                     </Fragment>
-                    <li>
+                    <li onMouseEnter={() => servicesMenuClose()}>
                       <p className="nav_link">Our Work</p>
                     </li>
                     <li>
