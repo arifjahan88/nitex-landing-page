@@ -74,7 +74,7 @@ const Navbar = () => {
         <header
           className={`header ${fixedNavbar ? "navbar_scroll" : ""}}`}
           //   className={`header ${fixedNavbar ? "navbar_scroll" : ""}`}
-          style={{ top: isNavVisible ? "0" : "-80px" }}
+          style={{ top: isNavVisible ? "0" : "-85px" }}
         >
           <div className="container">
             <div className="header_container">

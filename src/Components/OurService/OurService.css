@@ -74,8 +74,8 @@
 .design_text {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  padding: 58px 0 109px 101px;
+  gap: 30px;
+  padding: 58px 0 130px 101px;
   background-color: var(--dark);
 }
 .design_text p {
