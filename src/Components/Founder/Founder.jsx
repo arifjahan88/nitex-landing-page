@@ -3,13 +3,29 @@ import img1 from "../../assets/LinkedIn_color.png";
 import img2 from "../../assets/instagram_color.png";
 import img3 from "../../assets/mail.png";
 import founderImage from "../../assets/founder_image.png";
+import { CursorContext } from "../../Context/CursorContext";
+import { useContext } from "react";
+import { setCursor } from "../../CursorFunction/CursorFunction";
 
 const Founder = () => {
+  const getCursorContext = useContext(CursorContext);
+
+  const changeCursor = (changeType) => {
+    const cursor = setCursor(changeType);
+    getCursorContext.setCursorStyle(cursor);
+  };
   return (
     <section className="container">
       <section className="founderPart">
         <div className="textpart">
-          <div>
+          <div
+            onMouseEnter={() => {
+              changeCursor("size_defference");
+            }}
+            onMouseLeave={() => {
+              changeCursor();
+            }}
+          >
             <h3 className="header_text">Meet the</h3>
             <h3 className="header_text">Founder</h3>
           </div>

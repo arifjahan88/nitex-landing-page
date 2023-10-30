@@ -3,8 +3,9 @@ import "./Hero.css";
 import hero_design from "../../assets/hero-design.png";
 import hero_business from "../../assets/hero-business.png";
 import hero_tech from "../../assets/hero-tech.png";
-import { setCursor } from "../CursorPointer/CursorFunctions";
+
 import { CursorContext } from "../../Context/CursorContext";
+import { setCursor } from "../../CursorFunction/CursorFunction";
 
 const Hero = () => {
   const INITIAL_TIMER = 0;

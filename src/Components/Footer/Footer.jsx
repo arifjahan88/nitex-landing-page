@@ -4,7 +4,7 @@ import LinkedInImg from "../../assets/LinkedIn.png";
 import InstagramImg from "../../assets/instagram.png";
 import Email from "../../assets/email.png";
 import { CursorContext } from "../../Context/CursorContext";
-import { setCursor } from "../CursorPointer/CursorFunctions";
+import { setCursor } from "../../CursorFunction/CursorFunction";
 
 const Footer = () => {
   const [year, setYear] = useState("");

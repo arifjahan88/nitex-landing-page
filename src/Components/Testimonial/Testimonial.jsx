@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+
 import { Autoplay, Pagination } from "swiper/modules";
 
 import { testimonialData } from "./TestimonialData/TestimonialData";
@@ -17,10 +17,11 @@ const Testimonial = () => {
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
-          autoplay={{
-            delay: 4500,
-          }}
-          loop={true}
+          grabCursor={true}
+          //   autoplay={{
+          //     delay: 4500,
+          //   }}
+          //   loop={true}
           pagination={{
             clickable: true,
           }}

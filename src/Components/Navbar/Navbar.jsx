@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { BsList } from "react-icons/bs";
 import nav_arrow from "../../assets/nav_arrow.svg";
@@ -6,6 +6,8 @@ import nav_down_arrow from "../../assets/navbar-down-arrow.png";
 import nav_dot from "../../assets/nav_dot.svg";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import { CursorContext } from "../../Context/CursorContext";
+import { setCursor } from "../../CursorFunction/CursorFunction";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -68,6 +70,13 @@ const Navbar = () => {
     setShowMenu(false);
     setIsOpen(false);
   };
+
+  // Change Cursor Part
+  const getCursorContext = useContext(CursorContext);
+  const changeCursor = (changeType) => {
+    const cursor = setCursor(changeType);
+    getCursorContext.setCursorStyle(cursor);
+  };
   return (
     <>
       <Fragment>
@@ -78,16 +87,16 @@ const Navbar = () => {
         >
           <div className="container">
             <div className="header_container">
-              <p>
+              <Link to="/">
                 <img src={logo} width={136} height={50} />
-              </p>
+              </Link>
               <div className="main_nav">
                 <nav className="primary_navigation">
                   <ul>
                     <li onMouseEnter={() => servicesMenuClose()}>
-                      <Link to="/aboutus" className="nav_link">
-                        About Us
-                      </Link>
+                      <div className="nav_link" onClick={closeNavbar}>
+                        <Link to="/aboutus">About Us</Link>
+                      </div>
                     </li>
                     <Fragment>
                       <li onMouseEnter={() => servicesMenuOpen()} onClick={() => setIsOpen(!open)}>
@@ -140,9 +149,9 @@ const Navbar = () => {
                 <nav className="mobile_navigation">
                   <ul>
                     <li>
-                      <p className="nav_link" onClick={closeNavbar}>
-                        About Us
-                      </p>
+                      <div className="nav_link" onClick={closeNavbar}>
+                        <Link to="/aboutus">About Us</Link>
+                      </div>
                     </li>
                     <li
                       onClick={() => {
@@ -204,6 +213,7 @@ const Navbar = () => {
             {/* -----------------navber Dropdown--------- */}
             {isOpen && !mobile ? (
               <div
+                data-aos="fade-right"
                 className="dropdown"
                 onMouseLeave={() => {
                   servicesMenuClose();
@@ -212,34 +222,53 @@ const Navbar = () => {
                   servicesMenuClose();
                 }}
               >
-                <p>
-                  <div className="dropdown_design">
-                    <h1>Design</h1>
-                    <div className="dropdown_paragraph">
-                      <p>Hand Craft the User Experience</p>
-                      <img src={nav_arrow} alt=""></img>
-                    </div>
+                <div
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor();
+                  }}
+                  className="dropdown_design"
+                >
+                  <h1>Design</h1>
+                  <div className="dropdown_paragraph">
+                    <p>Hand Craft the User Experience</p>
+                    <img src={nav_arrow} alt=""></img>
                   </div>
-                </p>
+                </div>
 
-                <p>
-                  <div className="dropdown_technology">
-                    <h1>Technology</h1>
-                    <div className="dropdown_paragraph">
-                      <p>Leverage The Power of Code</p>
-                      <img src={nav_arrow} alt=""></img>
-                    </div>
+                <div
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor();
+                  }}
+                  className="dropdown_technology"
+                >
+                  <h1>Technology</h1>
+                  <div className="dropdown_paragraph">
+                    <p>Leverage The Power of Code</p>
+                    <img src={nav_arrow} alt=""></img>
                   </div>
-                </p>
-                <p>
-                  <div className="dropdown_business">
-                    <h1>Business</h1>
-                    <div className="dropdown_paragraph">
-                      <p>Creative Strategies for Brands</p>
-                      <img src={nav_arrow} alt=""></img>
-                    </div>
+                </div>
+
+                <div
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor();
+                  }}
+                  className="dropdown_business"
+                >
+                  <h1>Business</h1>
+                  <div className="dropdown_paragraph">
+                    <p>Creative Strategies for Brands</p>
+                    <img src={nav_arrow} alt=""></img>
                   </div>
-                </p>
+                </div>
               </div>
             ) : (
               ""

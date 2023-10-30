@@ -5,7 +5,7 @@ import PinkCircle from "../../assets/pink_circle.svg";
 import BlueCircle from "../../assets/blue_circle.svg";
 import { useContext } from "react";
 import { CursorContext } from "../../Context/CursorContext";
-import { setCursor } from "../CursorPointer/CursorFunctions";
+import { setCursor } from "../../CursorFunction/CursorFunction";
 
 const OurService = () => {
   const getCursorContext = useContext(CursorContext);
