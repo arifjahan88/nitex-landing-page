@@ -1,6 +1,6 @@
 .header {
   color: var(--dark);
-  padding: 15px 0;
+  /* padding: 15px 0; */
   background-color: #fff;
   z-index: 100;
   position: fixed;

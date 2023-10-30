@@ -82,13 +82,12 @@ const Navbar = () => {
       <Fragment>
         <header
           className={`header ${fixedNavbar ? "navbar_scroll" : ""}}`}
-          //   className={`header ${fixedNavbar ? "navbar_scroll" : ""}`}
           style={{ top: isNavVisible ? "0" : "-85px" }}
         >
           <div className="container">
             <div className="header_container">
               <Link to="/">
-                <img src={logo} width={136} height={50} />
+                <img src={logo} width={200} />
               </Link>
               <div className="main_nav">
                 <nav className="primary_navigation">

@@ -148,7 +148,7 @@ const Footer = () => {
           </div>
           <div className="copyright">
             <p className="copyright_band">
-              <span>&copy; </span>Alpharule Creatives
+              <span>&copy; </span>Creative Mind Creatives
             </p>
             <p className="copyright_text">All Rights Reserved {year}.</p>
           </div>
