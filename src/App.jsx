@@ -1,17 +1,17 @@
+import { useEffect } from "react";
 import "./App.css";
-import Footer from "./Components/Footer/Footer";
-import HomeTeam from "./Components/HomeTeam/HomeTeam";
-import Navbar from "./Components/Navbar/Navbar";
-import Quote from "./Components/Quote/Quote";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./Routes/Routes";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
-      <Navbar />
-      <HomeTeam />
-      <Quote />
-
-      <Footer />
+      <RouterProvider router={routes} />
     </>
   );
 }

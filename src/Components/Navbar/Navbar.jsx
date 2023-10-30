@@ -5,6 +5,7 @@ import nav_arrow from "../../assets/nav_arrow.svg";
 import nav_down_arrow from "../../assets/navbar-down-arrow.png";
 import nav_dot from "../../assets/nav_dot.svg";
 import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -38,7 +39,7 @@ const Navbar = () => {
       lastVal = y;
     };
   }, []);
-
+  //Check mobile
   const checkIsMobile = () => {
     if (window.innerWidth < 1000) {
       setIsMobile(true);
@@ -46,7 +47,7 @@ const Navbar = () => {
       setIsMobile(false);
     }
   };
-
+  //Dropdown Check
   const isServicesOpen = () => {
     if (!isOpen) {
       servicesMenuOpen();
@@ -84,7 +85,9 @@ const Navbar = () => {
                 <nav className="primary_navigation">
                   <ul>
                     <li onMouseEnter={() => servicesMenuClose()}>
-                      <p className="nav_link">About Us</p>
+                      <Link to="/aboutus" className="nav_link">
+                        About Us
+                      </Link>
                     </li>
                     <Fragment>
                       <li onMouseEnter={() => servicesMenuOpen()} onClick={() => setIsOpen(!open)}>
