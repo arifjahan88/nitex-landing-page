@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import hero_design from "../../assets/hero-design.png";
 import hero_business from "../../assets/hero-business.png";
 import hero_tech from "../../assets/hero-tech.png";
+import { setCursor } from "../CursorPointer/CursorFunctions";
+import { CursorContext } from "../../Context/CursorContext";
 
 const Hero = () => {
   const INITIAL_TIMER = 0;
@@ -78,6 +80,13 @@ const Hero = () => {
       button.style.transform = "translate(0px, 0px)";
     });
   }, []);
+
+  const getCursorContext = useContext(CursorContext);
+
+  const changeCursor = (changeType) => {
+    const cursor = setCursor(changeType);
+    getCursorContext.setCursorStyle(cursor);
+  };
   return (
     <section className="container">
       <div className="hero_container">
@@ -88,11 +97,11 @@ const Hero = () => {
               onMouseOver={() => {
                 setHoverImage(hero_categories.design);
                 setIsAutoSlide(false);
-                // changeCursor("size_defference");
+                changeCursor("size_defference");
               }}
               onMouseLeave={() => {
                 setIsAutoSlide(true);
-                // changeCursor();
+                changeCursor();
               }}
               style={{ color: hoverImage == hero_categories.design ? "var(--dark)" : "#fff" }}
             >
@@ -103,11 +112,11 @@ const Hero = () => {
               onMouseOver={() => {
                 setHoverImage(hero_categories.tech);
                 setIsAutoSlide(false);
-                // changeCursor("size_defference");
+                changeCursor("size_defference");
               }}
               onMouseLeave={() => {
                 setIsAutoSlide(true);
-                // changeCursor();
+                changeCursor();
               }}
               style={{ color: hoverImage == hero_categories.tech ? "var(--dark)" : "#fff" }}
             >
@@ -118,11 +127,11 @@ const Hero = () => {
               onMouseOver={() => {
                 setHoverImage(hero_categories.business);
                 setIsAutoSlide(false);
-                // changeCursor("size_defference");
+                changeCursor("size_defference");
               }}
               onMouseLeave={() => {
                 setIsAutoSlide(true);
-                // changeCursor();
+                changeCursor();
               }}
               style={{ color: hoverImage == hero_categories.business ? "var(--dark)" : "#fff" }}
             >

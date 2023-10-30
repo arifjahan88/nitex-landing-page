@@ -1,22 +1,47 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Footer.css";
 import LinkedInImg from "../../assets/LinkedIn.png";
 import InstagramImg from "../../assets/instagram.png";
 import Email from "../../assets/email.png";
+import { CursorContext } from "../../Context/CursorContext";
+import { setCursor } from "../CursorPointer/CursorFunctions";
 
 const Footer = () => {
   const [year, setYear] = useState("");
+
+  const getCursorContext = useContext(CursorContext);
+
+  // Cursor Chane Code
+  const changeCursor = (changeType) => {
+    const cursor = setCursor(changeType);
+    getCursorContext.setCursorStyle(cursor);
+  };
 
   useEffect(() => {
     const date = new Date();
     setYear(date.getFullYear());
   }, []);
   return (
-    <footer className="footer">
+    <footer
+      className="footer"
+      onMouseEnter={() => {
+        changeCursor("color_change");
+      }}
+      onMouseLeave={() => {
+        changeCursor();
+      }}
+    >
       <div className="container">
         <div className="first_row">
           <div>
-            <h2>
+            <h2
+              onMouseEnter={() => {
+                changeCursor("size_defference");
+              }}
+              onMouseLeave={() => {
+                changeCursor("color_change");
+              }}
+            >
               Have an <span className="outline">Idea</span> ?
             </h2>
             <div className="subtitle">
@@ -26,26 +51,80 @@ const Footer = () => {
           <div className="align_right">
             <ul>
               <li>
-                <p>Design</p>
+                <span
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor("color_change");
+                  }}
+                >
+                  Design
+                </span>
               </li>
               <li>
-                <p>Development</p>
+                <span
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor("color_change");
+                  }}
+                >
+                  Development
+                </span>
               </li>
               <li>
-                <p>Marketing</p>
+                <span
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor("color_change");
+                  }}
+                >
+                  Marketing
+                </span>
               </li>
             </ul>
           </div>
           <div className="align_right">
             <ul>
               <li>
-                <p>About Us</p>
+                <span
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor("color_change");
+                  }}
+                >
+                  About Us
+                </span>
               </li>
               <li>
-                <p>Our Work</p>
+                <span
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor("color_change");
+                  }}
+                >
+                  Our Work
+                </span>
               </li>
               <li>
-                <p>Contact Us</p>
+                <span
+                  onMouseEnter={() => {
+                    changeCursor("size_defference");
+                  }}
+                  onMouseLeave={() => {
+                    changeCursor("color_change");
+                  }}
+                >
+                  Contact Us
+                </span>
               </li>
             </ul>
           </div>

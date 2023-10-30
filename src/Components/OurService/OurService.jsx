@@ -3,13 +3,38 @@ import "./OurService.css";
 import GreenCircle from "../../assets/green_circle.svg";
 import PinkCircle from "../../assets/pink_circle.svg";
 import BlueCircle from "../../assets/blue_circle.svg";
+import { useContext } from "react";
+import { CursorContext } from "../../Context/CursorContext";
+import { setCursor } from "../CursorPointer/CursorFunctions";
 
 const OurService = () => {
+  const getCursorContext = useContext(CursorContext);
+
+  const changeCursor = (changeType) => {
+    const cursor = setCursor(changeType);
+    getCursorContext.setCursorStyle(cursor);
+  };
   return (
-    <section className="service_container">
+    <section
+      className="service_container"
+      onMouseEnter={() => {
+        changeCursor("color_change");
+      }}
+      onMouseLeave={() => {
+        changeCursor();
+      }}
+    >
       <div className="container">
         <div className="service_header">
-          <div className="service_title_container">
+          <div
+            className="service_title_container"
+            onMouseEnter={() => {
+              changeCursor("size_defference");
+            }}
+            onMouseLeave={() => {
+              changeCursor("color_change");
+            }}
+          >
             <span>Our</span>
             <span>Service</span>
           </div>
